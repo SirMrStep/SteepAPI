@@ -1,7 +1,10 @@
 package me.steep.steepapi.api;
 
+import com.SirBlobman.combatlogx.api.ICombatLogX;
+import com.SirBlobman.combatlogx.api.utility.ICombatManager;
 import me.steep.steepapi.objects.Cooldown;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.libs.jline.internal.Nullable;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -118,6 +121,16 @@ public class GeneralAPI {
         String type = item.getType().toString();
         return type.endsWith("_BOOTS") || type.endsWith("_LEGGINGS") || type.endsWith("_CHESTPLATE") || type.endsWith("_HELMET");
 
+    }
+
+    /**
+     * @param player The player to check
+     * @return Whether the specified player is in combat
+     */
+    public boolean isInCombat(Player player) {
+        ICombatLogX plugin = (ICombatLogX) Bukkit.getPluginManager().getPlugin("CombatLogX");
+        ICombatManager combatManager = plugin.getCombatManager();
+        return combatManager.isInCombat(player);
     }
 
 }

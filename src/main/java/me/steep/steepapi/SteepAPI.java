@@ -5,7 +5,6 @@ import com.SirBlobman.combatlogx.api.utility.ICombatManager;
 import me.steep.steepapi.api.BattalionAPI;
 import me.steep.steepapi.api.GeneralAPI;
 import me.steep.steepapi.listeners.PlayerArmorListener;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -45,12 +44,6 @@ public class SteepAPI extends JavaPlugin {
      */
     public static SteepAPI getInst() {
         return instance;
-    }
-
-    public boolean isInCombat(Player player) {
-        ICombatLogX plugin = (ICombatLogX) Bukkit.getPluginManager().getPlugin("CombatLogX");
-        ICombatManager combatManager = plugin.getCombatManager();
-        return combatManager.isInCombat(player);
     }
 
     public static GeneralAPI getGeneralAPI() {

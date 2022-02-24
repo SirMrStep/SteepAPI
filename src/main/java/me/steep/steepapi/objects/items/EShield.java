@@ -2,6 +2,7 @@ package me.steep.steepapi.objects.items;
 
 import me.steep.steepapi.SteepAPI;
 import me.steep.steepapi.api.BattalionAPI;
+import me.steep.steepapi.api.GeneralAPI;
 import me.steep.steepapi.handlers.DataHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -17,6 +18,7 @@ public class EShield {
 
     private static final SteepAPI main = SteepAPI.getInst();
     private final BattalionAPI bapi = SteepAPI.getBattalionAPI();
+    private final GeneralAPI gapi = SteepAPI.getGeneralAPI();
 
     private final Player owner;
     private ItemStack itemStack;
@@ -240,7 +242,7 @@ public class EShield {
                 public void run() {
 
                     //Bukkit.broadcastMessage("Runnable: running " + owner.getName());
-                    if (main.getConfig().getBoolean("EnergyShields." + gemid + ".recharge.out-of-combat") && main.isInCombat(owner)) {
+                    if (main.getConfig().getBoolean("EnergyShields." + gemid + ".recharge.out-of-combat") && gapi.isInCombat(owner)) {
 
                         //Bukkit.broadcastMessage("u are in combat " + owner.getName());
                         removeRegenData();

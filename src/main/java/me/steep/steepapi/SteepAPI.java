@@ -1,12 +1,9 @@
 package me.steep.steepapi;
 
-import com.SirBlobman.combatlogx.api.ICombatLogX;
-import com.SirBlobman.combatlogx.api.utility.ICombatManager;
 import me.steep.steepapi.api.BattalionAPI;
 import me.steep.steepapi.api.GeneralAPI;
 import me.steep.steepapi.listeners.PlayerArmorListener;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 

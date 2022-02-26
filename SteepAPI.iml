@@ -20,8 +20,10 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.17.1-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:22.0.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.17.1-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.SirBlobman.combatlogx:CombatLogX-API:9.0.0.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: me.steep.crackshot:CrackShot:latest" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: me.steep.crackshot:CrackShotPlus:latest" level="project" />
   </component>
 </module>

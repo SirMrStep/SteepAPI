@@ -201,7 +201,7 @@ public class EShield {
                 this.stopShieldRegen();
             }
             this.setUsing(false);
-            bapi.sendActionBar(this.owner, "");
+            gapi.sendActionBar(this.owner, "");
             bapi.removeEShieldedPlayer(this.owner);
         }
     }
@@ -310,7 +310,7 @@ public class EShield {
         double max = this.getShieldMaxHealth(false);
         int bars = main.getConfig().getInt("EnergyShields." + gemid + ".progressbar.bars");
         String color = main.getConfig().getString("EnergyShields." + gemid + ".progressbar.color");
-        bapi.sendActionBar(owner, bapi.getProgressBar(min, max, bars, color) + " &f" + (int) min + color + " ⛨");
+        gapi.sendActionBar(owner, bapi.getProgressBar(min, max, bars, color) + " &f" + (int) min + color + " ⛨");
 
     }
 

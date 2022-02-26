@@ -2,15 +2,13 @@ package me.steep.steepapi.api;
 
 import com.google.common.base.Strings;
 import me.steep.steepapi.SteepAPI;
+import me.steep.steepapi.api.handlers.EShieldHandler;
+import me.steep.steepapi.api.handlers.SaberHandler;
 import me.steep.steepapi.handlers.DataHandler;
 import me.steep.steepapi.objects.items.BattalionItem;
 import me.steep.steepapi.objects.items.EShield;
 import me.steep.steepapi.objects.items.JetPack;
-import net.minecraft.network.chat.ChatMessageType;
-import net.minecraft.network.chat.IChatBaseComponent;
-import net.minecraft.network.protocol.game.PacketPlayOutChat;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_17_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -23,18 +21,30 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+/**
+ * Never assign a new BattalionAPI(), just get it via SteepAPI.getBattalionAPI()
+ */
 public class BattalionAPI {
-
-    /**
-     * Never assign a new BattalionAPI, just get the object via SteepAPI.getBattalionAPI()
-     */
-    public BattalionAPI() {
-
-    }
 
     private final SteepAPI main = SteepAPI.getInst();
     private final GeneralAPI gapi = SteepAPI.getGeneralAPI();
     private final Set<UUID> eShieldedPlayers = new HashSet<>();
+
+    /**
+     * This class contains methods to work with the EnergyShield
+     * @return The EnergyShield handler
+     */
+    public EShieldHandler getEShieldHandler() {
+        return main.getEShieldHandler();
+    }
+
+    /**
+     * This class contains methods to work with the EnergySaber
+     * @return The EnergySaber handler
+     */
+    public SaberHandler getSaberHandler() {
+        return main.getSaberHandler();
+    }
 
     /**
      * I loop through this every 2 seconds (if at least 1 player is using an EShield) for the EShield health indicator actionbar
@@ -297,19 +307,6 @@ public class BattalionAPI {
 
     }
 
-    /**
-     * @param p The player to send the actionbar to
-     * @param s The text to put in the actionbar (supports color codes)
-     */
-    public void sendActionBar(Player p, String s) {
-
-        CraftPlayer cp = (CraftPlayer) p;
-        IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + gapi.color(s) + "\"}");
-        PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, ChatMessageType.a((byte) 2), UUID.randomUUID());
-        cp.getHandle().b.sendPacket(ppoc);
-
-    }
-
     private boolean running;
 
     /**
@@ -358,7 +355,7 @@ public class BattalionAPI {
                                 String color = main.getConfig().getString("EnergyShields." + shield.getGemId() + ".progressbar.color");
                                 //Bukkit.broadcastMessage("min: " + (int) min + ", max: " + (int) max + ", bars: " + bars + "color: " + color);
                                 //Bukkit.broadcastMessage("showing");
-                                sendActionBar(p, getProgressBar(min, max, bars, color) + " &f" + (int) min + color + " ⛨"); // make a getActionBar method in EShield
+                                gapi.sendActionBar(p, getProgressBar(min, max, bars, color) + " &f" + (int) min + color + " ⛨"); // make a getActionBar method in EShield
 
                             }
 

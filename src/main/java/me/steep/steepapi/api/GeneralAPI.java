@@ -4,8 +4,12 @@ import com.SirBlobman.combatlogx.api.ICombatLogX;
 import com.SirBlobman.combatlogx.api.utility.ICombatManager;
 import me.steep.steepapi.objects.Cooldown;
 import net.md_5.bungee.api.ChatColor;
+import net.minecraft.network.chat.ChatMessageType;
+import net.minecraft.network.chat.IChatBaseComponent;
+import net.minecraft.network.protocol.game.PacketPlayOutChat;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.libs.jline.internal.Nullable;
+import org.bukkit.craftbukkit.v1_17_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -14,14 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * Never make a new GeneralAPI(), just get it via SteepAPI.getGeneralAPI()
+ */
 public class GeneralAPI {
-
-    /**
-     * Never make a new GeneralAPI object, just get the object via SteepAPI.getGeneralAPI()
-     */
-    public GeneralAPI() {
-
-    }
 
     //private static final SteepAPI main = SteepAPI.getInst();
     private final Map<String, Map<UUID, Cooldown>> cooldowns = new HashMap<>();
@@ -97,6 +97,19 @@ public class GeneralAPI {
     public void removeCooldown(Player player, String name) {
 
         if (this.isOnCooldown(player, name)) this.getCooldown(player, name).remove();
+
+    }
+
+    /**
+     * @param p The player to send the actionbar to
+     * @param s The text to put in the actionbar (supports color codes)
+     */
+    public void sendActionBar(Player p, String s) {
+
+        CraftPlayer cp = (CraftPlayer) p;
+        IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + this.color(s) + "\"}");
+        PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, ChatMessageType.a((byte) 2), UUID.randomUUID());
+        cp.getHandle().b.sendPacket(ppoc);
 
     }
 

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: me.steep.crackshot:CrackShotPlus:latest">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/me/steep/crackshot/CrackShotPlus/latest/CrackShotPlus-latest.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/me/steep/crackshot/CrackShotPlus/latest/CrackShotPlus-latest-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/me/steep/crackshot/CrackShotPlus/latest/CrackShotPlus-latest-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

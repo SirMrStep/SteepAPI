@@ -6,6 +6,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
+import java.util.List;
 
 @SuppressWarnings("all")
 public class DataHandler {
@@ -19,6 +20,18 @@ public class DataHandler {
         ItemMeta meta = itemStack.getItemMeta();
         meta.setDisplayName(name);
         meta.setLore(Arrays.asList(lore));
+        itemStack.setItemMeta(meta);
+    }
+
+    /**
+     * @param itemStack The ItemStack to edit
+     * @param name The name to put on the ItemStack
+     * @param lore The lore to put on the ItemStack
+     */
+    public static void setNameAndLore(ItemStack itemStack, String name, List<String> lore) {
+        ItemMeta meta = itemStack.getItemMeta();
+        meta.setDisplayName(name);
+        meta.setLore(lore);
         itemStack.setItemMeta(meta);
     }
 

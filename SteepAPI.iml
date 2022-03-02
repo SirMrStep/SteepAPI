@@ -25,5 +25,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.SirBlobman.combatlogx:CombatLogX-API:9.0.0.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: me.steep.crackshot:CrackShot:latest" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: me.steep.crackshot:CrackShotPlus:latest" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: me.steep.mmoitems:MMOItems:latest" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: me.steep.mythiclib:MythicLib:latest" level="project" />
   </component>
 </module>

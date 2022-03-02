@@ -1,5 +1,6 @@
 package me.steep.steepapi.listeners;
 
+import io.lumine.mythic.lib.api.event.ArmorEquipEvent;
 import me.steep.steepapi.SteepAPI;
 import me.steep.steepapi.api.GeneralAPI;
 import me.steep.steepapi.events.PlayerArmorEquipEvent;
@@ -25,6 +26,16 @@ import org.bukkit.inventory.ItemStack;
 public class PlayerArmorListener implements Listener {
 
     private final GeneralAPI gapi = SteepAPI.getGeneralAPI();
+
+    @EventHandler
+    public void onArmorEquip(ArmorEquipEvent e) {
+        if(e.getNewArmorPiece() != null) {
+            Bukkit.broadcastMessage(e.getPlayer().getName() + "is equipping " + e.getNewArmorPiece().getType());
+        }
+        if(e.getOldArmor() != null) {
+            Bukkit.broadcastMessage(e.getPlayer().getName() + "is unequipping " + e.getOldArmor().getType());
+        }
+    }
 
     @EventHandler
     public void onInvClick(InventoryClickEvent e) {

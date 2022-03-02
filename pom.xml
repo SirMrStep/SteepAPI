@@ -8,6 +8,23 @@
     <artifactId>SteepAPI</artifactId>
     <version>v0.0.1</version>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
@@ -47,6 +64,18 @@
         <dependency>
             <groupId>me.steep.crackshot</groupId>
             <artifactId>CrackShotPlus</artifactId>
+            <version>latest</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.steep.mmoitems</groupId>
+            <artifactId>MMOItems</artifactId>
+            <version>latest</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.steep.mythiclib</groupId>
+            <artifactId>MythicLib</artifactId>
             <version>latest</version>
             <scope>provided</scope>
         </dependency>

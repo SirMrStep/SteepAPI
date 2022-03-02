@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: me.steep.mythiclib:MythicLib:latest">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/me/steep/mythiclib/MythicLib/latest/MythicLib-latest.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/me/steep/mythiclib/MythicLib/latest/MythicLib-latest-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/me/steep/mythiclib/MythicLib/latest/MythicLib-latest-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

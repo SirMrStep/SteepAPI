@@ -1,0 +1,25 @@
+-classpath
+'C:/Users/lemik/.m2/repository/org/jetbrains/annotations/22.0.0/annotations-22.0.0.jar;C:/Users/lemik/.m2/repository/org/spigotmc/spigot/1.17.1-R0.1-SNAPSHOT/spigot-1.17.1-R0.1-SNAPSHOT.jar;C:/Users/lemik/.m2/repository/com/SirBlobman/combatlogx/CombatLogX-API/9.0.0.0/CombatLogX-API-9.0.0.0.jar;C:/Users/lemik/.m2/repository/me/steep/crackshot/CrackShot/latest/CrackShot-latest.jar;C:/Users/lemik/.m2/repository/me/steep/crackshot/CrackShotPlus/latest/CrackShotPlus-latest.jar'
+-encoding
+'UTF-8'
+-private
+-source
+'16'
+-sourcepath
+'C:/Users/lemik/Desktop/shiiit/IdeaProjects/SteepAPI/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/lemik/Desktop/shiiit/IdeaProjects/SteepAPI/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'SteepAPI v0.0.1 API'
+-nohelp
+-use
+-version
+-windowtitle
+'SteepAPI v0.0.1 API'

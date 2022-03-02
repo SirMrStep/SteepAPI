@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: me.steep.mmoitems:MMOItems:latest">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/me/steep/mmoitems/MMOItems/latest/MMOItems-latest.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/me/steep/mmoitems/MMOItems/latest/MMOItems-latest-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/me/steep/mmoitems/MMOItems/latest/MMOItems-latest-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

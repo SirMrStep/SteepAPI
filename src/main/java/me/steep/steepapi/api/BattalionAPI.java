@@ -23,6 +23,7 @@ import java.util.UUID;
 
 /**
  * Never assign a new BattalionAPI(), just get it via SteepAPI.getBattalionAPI()
+ * TODO: Look through this entire class and update things as needed.
  */
 public class BattalionAPI {
 
@@ -278,21 +279,6 @@ public class BattalionAPI {
     }
 
     /**
-     * @param min The amount left of the max value
-     * @param max The max progress value
-     * @param bars The amount of bars this progressbar should have
-     * @param color The color of the progress
-     * @return The requested progressbar as a String
-     */
-    /*public String getProgressBar(double min, double max, int bars, String color) {
-        double percent = min / max;
-        int progressBars = (int) (bars * percent);
-
-        return Strings.repeat(main.colors(color + "|"), progressBars)
-                + Strings.repeat(main.colors("&7|"), bars - progressBars);
-    }*/
-
-    /**
      * @param min   The amount left of the max value
      * @param max   The max progress value
      * @param bars  The amount of bars this progressbar should have
@@ -313,6 +299,7 @@ public class BattalionAPI {
      * Starts the actionbar runnable (only if inactive) that displays both the actionbar for EnergyShields and EnergySabers to all relevant players
      * (stops if nobody has an EnergyShield or EnergySaber active)
      */
+    // I know why this code is here but i can no longer read it, make it more readable and write down the reason.
     public void displayProgressBar() {
 
         Bukkit.broadcastMessage("triggered display");
@@ -341,28 +328,22 @@ public class BattalionAPI {
                     }
 
                     Set<UUID> players = new HashSet<>(eShieldedPlayers);
-                    players.forEach(id -> {
+                    try {
 
-                        try {
+                        players.forEach(id -> {
 
                             Player p = Bukkit.getPlayer(id);
                             if (!isRegenningEShield(p) || isScheduledForEShieldRegen(p)) {
 
-                                EShield shield = getEShield(p);
-                                double min = shield.getShieldHealth(false);
-                                double max = shield.getShieldMaxHealth(false);
-                                int bars = main.getConfig().getInt("EnergyShields." + shield.getGemId() + ".progressbar.bars");
-                                String color = main.getConfig().getString("EnergyShields." + shield.getGemId() + ".progressbar.color");
-                                //Bukkit.broadcastMessage("min: " + (int) min + ", max: " + (int) max + ", bars: " + bars + "color: " + color);
                                 //Bukkit.broadcastMessage("showing");
-                                gapi.sendActionBar(p, getProgressBar(min, max, bars, color) + " &f" + (int) min + color + " ⛨"); // make a getActionBar method in EShield
+                                EShield shield = getEShield(p);
+                                shield.sendActionBar();
 
                             }
 
-                        } catch (Exception ignored) {
-                        }
+                        });
 
-                    });
+                    } catch (Exception ignored) { }
 
                 }
 

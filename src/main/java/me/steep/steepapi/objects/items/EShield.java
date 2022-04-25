@@ -138,7 +138,7 @@ public class EShield {
 
         }*/
 
-        showProgressBar();
+        sendActionBar();
     }
 
     private void setUsing(boolean using) {
@@ -186,7 +186,7 @@ public class EShield {
             this.startShieldRegen();
             this.setUsing(true);
             bapi.setScoreboardHealth(this.owner, this.owner.getHealth() + this.getShieldHealth(false));
-            this.showProgressBar();
+            this.sendActionBar();
             bapi.addEShieldedPlayer(this.owner);
             bapi.displayProgressBar();
         }
@@ -261,7 +261,7 @@ public class EShield {
 
                             if (rate <= 40) {
 
-                                showProgressBar();
+                                sendActionBar();
 
                             }
 
@@ -275,7 +275,7 @@ public class EShield {
 
                             if (rate <= 40) {
 
-                                showProgressBar();
+                                sendActionBar();
 
                             }
 
@@ -284,7 +284,7 @@ public class EShield {
 
                         if (rate <= 40) {
 
-                            showProgressBar();
+                            sendActionBar();
 
                         }
 
@@ -304,7 +304,7 @@ public class EShield {
 
     }
 
-    private void showProgressBar() {
+    public void sendActionBar() {
 
         double min = this.getShieldHealth(false);
         double max = this.getShieldMaxHealth(false);

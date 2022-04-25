@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * TODO: Rewrite part of this
+ */
 public class Cooldown {
 
     private final SteepAPI main = SteepAPI.getInst();

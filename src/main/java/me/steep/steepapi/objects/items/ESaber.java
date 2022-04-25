@@ -2,8 +2,9 @@ package me.steep.steepapi.objects.items;
 
 
 import me.steep.steepapi.SteepAPI;
-import me.steep.steepapi.api.BattalionAPI;
+import me.steep.steepapi.api.GeneralAPI;
 import me.steep.steepapi.handlers.DataHandler;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -13,7 +14,7 @@ import java.util.UUID;
 @SuppressWarnings("all")
 public class ESaber {
 
-    private final BattalionAPI bapi = SteepAPI.getBattalionAPI();
+    private final GeneralAPI gapi = SteepAPI.getGeneralAPI();
 
     private final Player owner;
     private final ItemStack itemStack;
@@ -53,7 +54,7 @@ public class ESaber {
         // TODO START STAMINA REGEN
     }
 
-    public static double getStamina(Player player) {
+    public static double getStamina(Player player) { // remove Player player
         return player.getMetadata("Battalion_SaberStamina").get(0).asDouble();
     }
 
@@ -61,19 +62,12 @@ public class ESaber {
         return this.owner.getMetadata("Battalion_SaberStamina").get(0).asDouble();
     }
 
-    /*public void sendStaminaActionBar(Player player) { // TODO MAKE IT 50 BARS
-        double configValue = main.getConfig().getDouble("Saber.stamina");
-        double percent = (getStamina(player) / configValue);
+    public void sendActionBar() { // TODO MAKE IT 50 BARS
+        double configValue = Bukkit.getPluginManager().getPlugin("Battalion").getConfig().getDouble("Saber.stamina");
+        double percent = (getStamina(owner) / configValue);
         double bars = configValue / 10;
-        StringBuilder health = new StringBuilder();
-        for(int index = 0; index < bars; index++) {
-            if(index < Math.floor((bars * percent))) {
-                health.append(main.colors("&c|"));
-            } else {
-                health.append(main.colors("&7|"));
-            }
-        }
-        sendActionBar(player, Math.floor((percent * 100)) + "% " + health);
-    }*/
+        //gapi.sendActionBar(owner, );
+        // put method getProgressBar() into GeneralAPI instead of BattalionAPI
+    }
 
 }

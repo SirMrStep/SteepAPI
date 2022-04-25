@@ -1,6 +1,5 @@
 package me.steep.steepapi.listeners;
 
-import io.lumine.mythic.lib.api.event.ArmorEquipEvent;
 import me.steep.steepapi.SteepAPI;
 import me.steep.steepapi.api.GeneralAPI;
 import me.steep.steepapi.events.PlayerArmorEquipEvent;
@@ -26,16 +25,6 @@ import org.bukkit.inventory.ItemStack;
 public class PlayerArmorListener implements Listener {
 
     private final GeneralAPI gapi = SteepAPI.getGeneralAPI();
-
-    @EventHandler
-    public void onArmorEquip(ArmorEquipEvent e) {
-        if(e.getNewArmorPiece() != null) {
-            Bukkit.broadcastMessage(e.getPlayer().getName() + "is equipping " + e.getNewArmorPiece().getType());
-        }
-        if(e.getOldArmor() != null) {
-            Bukkit.broadcastMessage(e.getPlayer().getName() + "is unequipping " + e.getOldArmor().getType());
-        }
-    }
 
     @EventHandler
     public void onInvClick(InventoryClickEvent e) {
@@ -101,6 +90,7 @@ public class PlayerArmorListener implements Listener {
 
         }
 
+        /* debug
         Bukkit.broadcastMessage("ClickedItem: " + clickedItem.getType());
         Bukkit.broadcastMessage("CursorItem: " + cursorItem.getType());
         Bukkit.broadcastMessage("HotBarButton: " + e.getHotbarButton());
@@ -108,7 +98,7 @@ public class PlayerArmorListener implements Listener {
         Bukkit.broadcastMessage("RawSlot: " + e.getRawSlot());
         Bukkit.broadcastMessage("SlotType: " + e.getSlotType());
         Bukkit.broadcastMessage("Action: " + e.getAction());
-
+         */
     }
 
     @EventHandler
@@ -126,19 +116,12 @@ public class PlayerArmorListener implements Listener {
             return;
         }
 
-        if (launchPlayerArmorEquipEvent((Player) e.getWhoClicked(), null, e.getOldCursor()).isCancelled()) {
-
-            e.setCancelled(true);
-
-        }
+        if (launchPlayerArmorEquipEvent((Player) e.getWhoClicked(), null, e.getOldCursor()).isCancelled()) e.setCancelled(true);
 
     }
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
-
-        //Bukkit.broadcastMessage(e.getAction().toString());
-        //Bukkit.broadcastMessage(e.useItemInHand().toString());
 
         if (e.useItemInHand() == Event.Result.DENY || e.getAction() == Action.PHYSICAL) return;
 
@@ -161,16 +144,11 @@ public class PlayerArmorListener implements Listener {
 
             if (type == Material.BELL || type == Material.COMPOSTER) e.setCancelled(true);
 
-            //e.setCancelled(true);
             return;
 
         }
 
-        if (launchPlayerArmorEquipEvent(e.getPlayer(), null, e.getItem()).isCancelled()) {
-
-            e.setCancelled(true);
-
-        }
+        if (launchPlayerArmorEquipEvent(e.getPlayer(), null, e.getItem()).isCancelled()) e.setCancelled(true);
 
     }
 
@@ -185,11 +163,7 @@ public class PlayerArmorListener implements Listener {
 
             case PLACE_ALL -> {
 
-                if (launchPlayerArmorEquipEvent((Player) clicker, null, cursorItem).isCancelled()) {
-
-                    e.setCancelled(true);
-
-                }
+                if (launchPlayerArmorEquipEvent((Player) clicker, null, cursorItem).isCancelled()) e.setCancelled(true);
 
             }
 
@@ -200,21 +174,13 @@ public class PlayerArmorListener implements Listener {
                     return;
                 }
 
-                if (launchPlayerArmorEquipEvent((Player) clicker, null, cursorItem).isCancelled()) {
-
-                    e.setCancelled(true);
-
-                }
+                if (launchPlayerArmorEquipEvent((Player) clicker, null, cursorItem).isCancelled()) e.setCancelled(true);
 
             }
 
             case PICKUP_ALL, DROP_ALL_SLOT -> {
 
-                if (launchPlayerArmorEquipEvent((Player) clicker, clickedItem, null).isCancelled()) {
-
-                    e.setCancelled(true);
-
-                }
+                if (launchPlayerArmorEquipEvent((Player) clicker, clickedItem, null).isCancelled()) e.setCancelled(true);
 
             }
 
@@ -225,21 +191,13 @@ public class PlayerArmorListener implements Listener {
                     return;
                 }
 
-                if (launchPlayerArmorEquipEvent((Player) clicker, clickedItem, null).isCancelled()) {
-
-                    e.setCancelled(true);
-
-                }
+                if (launchPlayerArmorEquipEvent((Player) clicker, clickedItem, null).isCancelled()) e.setCancelled(true);
 
             }
 
             case SWAP_WITH_CURSOR, HOTBAR_SWAP -> {
 
-                if (launchPlayerArmorEquipEvent((Player) clicker, clickedItem, cursorItem).isCancelled()) {
-
-                    e.setCancelled(true);
-
-                }
+                if (launchPlayerArmorEquipEvent((Player) clicker, clickedItem, cursorItem).isCancelled()) e.setCancelled(true);
 
             }
 

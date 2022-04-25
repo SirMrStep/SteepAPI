@@ -2,3 +2,6 @@ name: SteepAPI
 main: me.steep.steepapi.SteepAPI
 version: 0.0.1
 api-version: 1.17
+depend:
+  - CrackShot
+  - CrackShotPlus
